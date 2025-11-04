@@ -15,11 +15,18 @@ public class Application {
 			List<Employee> employees=dao.getEmployees();
 			employees.forEach(System.out::println);
 			
-			Employee e = dao.getEmployee();
+			//Get particular employee
+			Employee e = dao.getEmployee(5);
 			
 			System.out.println("Employee :");
 			System.out.println(e.toString());
 			
+			//Add new Employee
+			e= new Employee("6","Claire","40000");
+			//int t = dao.addEmployee(e);
+			
+			//remove employee
+			int d= dao.removeEmployee(6);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

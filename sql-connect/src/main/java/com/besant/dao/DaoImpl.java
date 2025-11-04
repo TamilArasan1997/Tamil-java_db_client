@@ -35,12 +35,12 @@ public class DaoImpl {
 		return list;		
 	}
 
-	public Employee getEmployee() {
+	public Employee getEmployee(int i) {
 		String query = "select * from employees where employee_id=?";
 		Employee e = null;
 		try(Connection conn = DriverManager.getConnection(connection,username,password);
 			PreparedStatement psmt = conn.prepareStatement(query)){
-			psmt.setInt(1, 1);
+			psmt.setInt(1,i);
 			
 			ResultSet r = psmt.executeQuery();
 			
@@ -55,5 +55,42 @@ public class DaoImpl {
 			e1.printStackTrace();
 		}
 		return e;
+	}
+
+	public int addEmployee(Employee e) {
+		String query = "insert into employees values (?,?,?,?)";
+		int t = 0;
+		try(Connection conn = DriverManager.getConnection(connection,username,password);
+				PreparedStatement psmt = conn.prepareStatement(query)){
+				psmt.setString(1,e.getId());
+				psmt.setString(2, e.getName());
+				psmt.setString(3, e.getSalary());
+				psmt.setString(4,"107");
+				
+				t = psmt.executeUpdate();
+				
+
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		return t;
+	}
+
+	public int removeEmployee(int i) {
+		String query = "DELETE FROM employees WHERE employee_id = ?";
+		int t = 0;
+		try(Connection conn = DriverManager.getConnection(connection,username,password);
+				PreparedStatement psmt = conn.prepareStatement(query)){
+				psmt.setInt(1,i);
+		
+				t = psmt.executeUpdate();
+				
+
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+						
+			}
+		return t;
 	}
 }
