@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register Employee</title>
+<style type="text/css">
+.back {
+	background-color: lightblue;
+}
+</style>
+<script type="text/javascript">
+	function validate() {
+		var name = document.getElementById("name").value;
+		console.log("Given name : " + name);
+		if (name == "") {
+			alert("Employee Name cannot be empty");
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+	<form action="EmployeePortal" onsubmit="return validate()" Method="POST"
+		class="back">
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>Enter Employee ID:</td>
+					<td><input id="id" name="eid" type="text" /></td>
+				</tr>
+				<tr>
+					<td>Enter Employee Name:</td>
+					<td><input id="name" name="ename" type="text" /></td>
+				</tr>
+				<tr>
+					<td>Enter Employee Salary:</td>
+					<td><input id="salary" name="esalary" type="text" /></td>
+				</tr>
+				<tr>
+					<td>Enter Employee Department ID:</td>
+					<td><input id="dept" name="edept" type="text" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

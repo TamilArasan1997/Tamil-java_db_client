@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Profile</title>
+<style type="text/css">
+.back {
+	background-color: lightblue;
+}
+</style>
+<script type="text/javascript">
+	function validate() {
+		var name = document.getElementById("name").value;
+		console.log("Given name : " + name);
+		if (name == "") {
+			alert("Employee Name cannot be empty");
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+<h1 align="center">Employee Info Portal</h1>
+	<form action="EmployeePortal" onsubmit="return validate()" Method="GET"
+		class="back">
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>Enter Employee Name:</td>
+					<td><input id="name" name="ename" type="text" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>
